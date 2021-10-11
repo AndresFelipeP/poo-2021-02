@@ -5,6 +5,20 @@ public class Taxi extends Carro {
     private int capacidadPasajeros;
     private int nroPasajerosActuales;
 
+    public Taxi(String marca, String modelo, String tipoTrasmision, String empresa, int cantidadPasajeros) {
+        super(marca, modelo, tipoTrasmision);
+        this.empresa = empresa;
+        this.capacidadPasajeros = cantidadPasajeros;
+    }
+
+    @Override
+    public void acelerar(int incremento) {
+        super.acelerar(incremento);
+        System.out.println("Antes del turbo " + this.velocidad);
+        this.velocidad += 80;
+        System.out.println("Taxi de afán " + this.velocidad + "km / h");
+    }
+
     public void recogerPasajero(){
         if (nroPasajerosActuales < capacidadPasajeros) {
             nroPasajerosActuales++;

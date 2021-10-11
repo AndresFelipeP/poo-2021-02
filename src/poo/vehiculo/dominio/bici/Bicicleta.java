@@ -5,6 +5,10 @@ import poo.vehiculo.dominio.Vehiculo;
 public class Bicicleta extends Vehiculo {
     private int cadencia;
 
+    public Bicicleta(String marca, String modelo) {
+        super(marca, modelo);
+    }
+
     @Override
     public void acelerar(int incremento) {
         System.out.println("Acelerando como bici normal...");
