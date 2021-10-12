@@ -8,6 +8,7 @@ public class BicicletaMTB extends Bicicleta {
     @Override
     public void acelerar(int incremento) {
         System.out.println("Acelerando bici de montaña... 🚵️");
+        super.acelerar(incremento);
         this.velocidad += incremento / 2;
     }
 

@@ -2,6 +2,7 @@ package poo.vehiculo.app;
 
 import poo.vehiculo.dominio.Vehiculo;
 import poo.vehiculo.dominio.bici.Bicicleta;
+import poo.vehiculo.dominio.bici.BicicletaCrono;
 import poo.vehiculo.dominio.bici.BicicletaMTB;
 import poo.vehiculo.dominio.bici.BicicletaRuta;
 import poo.vehiculo.dominio.carro.Carro;
@@ -11,6 +12,7 @@ import poo.vehiculo.dominio.moto.Moto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class AppVehiculo {
 
@@ -23,15 +25,31 @@ public class AppVehiculo {
         Bicicleta mtb = new BicicletaMTB("Trek", "X-Caliber");
         Vehiculo taxi = new Taxi("Chevrolet", "Spark", "Asistida", "TransUnidos", 4);
 
-        vehiculos.add(moto);
+        vehiculos.add(taxi);
         vehiculos.add(bici);
         vehiculos.add(carro);
         vehiculos.add(mtb);
-        vehiculos.add(taxi);
+        vehiculos.add(moto);
+
+        vehiculos.forEach(vehiculo -> {
+            if (vehiculo instanceof Taxi) {
+                Taxi miTaxi = (Taxi) vehiculo;
+                System.out.println("El taxi viene con " + miTaxi.getNroPasajerosActuales() + " pasajeros.");
+                miTaxi.recogerPasajero();
+                miTaxi.recogerPasajero();
+                System.out.println("El taxi se va con " + miTaxi.getNroPasajerosActuales() + " pasajeros.");
+            }
+        });
 
         vehiculos.forEach(vehi -> {
             vehi.acelerar(new Random().nextInt(50));
             System.out.println(vehi + " va a " + vehi.getVelocidad() + "km/h \n");
+        });
+
+        vehiculos.stream().filter(v -> v instanceof Bicicleta).forEach(bicicleta -> {
+            System.out.println("La " + bicicleta.getMarca() + " "
+                    + bicicleta.getModelo() + " tiene "
+                    + ((Bicicleta) bicicleta).getCadencia() + " pedaleadas por minuto.");
         });
     }
 }

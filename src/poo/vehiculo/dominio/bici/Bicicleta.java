@@ -2,6 +2,8 @@ package poo.vehiculo.dominio.bici;
 
 import poo.vehiculo.dominio.Vehiculo;
 
+import java.util.Random;
+
 public class Bicicleta extends Vehiculo {
     private int cadencia;
 
@@ -13,6 +15,7 @@ public class Bicicleta extends Vehiculo {
     public void acelerar(int incremento) {
         System.out.println("Acelerando como bici normal...");
         this.velocidad += incremento * 1.2;
+        this.cadencia += new Random().nextInt(120);
     }
 
     public int getCadencia() {
