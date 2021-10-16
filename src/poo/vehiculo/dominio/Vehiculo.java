@@ -1,6 +1,6 @@
 package poo.vehiculo.dominio;
 
-public class Vehiculo {
+public abstract class Vehiculo {
     private String matricula;
     private String marca;
     private String modelo;
@@ -12,10 +12,7 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
-    public void acelerar(int incremento) {
-        System.out.println("Acelerando vehiculo... " + this.marca + " - " + this.modelo);
-        this.velocidad += incremento;
-    }
+    public abstract void acelerar(int incremento);
 
     public void frenar(int decremento) {
         this.velocidad -= decremento;

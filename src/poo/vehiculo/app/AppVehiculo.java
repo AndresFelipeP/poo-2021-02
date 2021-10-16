@@ -46,6 +46,12 @@ public class AppVehiculo {
             System.out.println(vehi + " va a " + vehi.getVelocidad() + "km/h \n");
         });
 
+        for (Vehiculo v: vehiculos) {
+            if (v instanceof Taxi) {
+                System.out.println("El taxi lleva " + ((Taxi) v).getNroPasajerosActuales());
+            }
+        }
+
         vehiculos.stream().filter(v -> v instanceof Bicicleta).forEach(bicicleta -> {
             System.out.println("La " + bicicleta.getMarca() + " "
                     + bicicleta.getModelo() + " tiene "
