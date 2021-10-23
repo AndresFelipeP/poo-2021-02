@@ -25,7 +25,7 @@ public class AppDesafio {
             nomina.getEmpleados().add(pedro);
 
             nomina.getEmpleados().forEach(nominaactual->{StringBuilder vistaso = new StringBuilder();
-                vistaso.append(nominaactual.getNombre()).append("  el salario es  : ").append(nominaactual.calcularSalario());
+                vistaso.append(nominaactual.getNombre()).append("  tiene un salario de: ").append(nominaactual.calcularSalario());
                 System.out.println(vistaso);
             });
         }
