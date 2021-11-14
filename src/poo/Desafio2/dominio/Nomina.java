@@ -3,7 +3,7 @@ package poo.Desafio2.dominio;
 import java.util.ArrayList;
 
 public class Nomina {
-    private ArrayList<Empleado> empleados=new ArrayList<>();
+    public ArrayList<Empleado> empleados=new ArrayList<>();
     Empleado juan=new Directo("Juan",6812000);
     Empleado julian=new Vendedor("Julian",2410000,62106200);
     Empleado johanna=new Freelance("Johanna",120000,79);
